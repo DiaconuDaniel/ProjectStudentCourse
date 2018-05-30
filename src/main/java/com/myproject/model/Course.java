@@ -9,20 +9,15 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Daniel.Diaconu on 18/05/28.
- */
+
 @Entity
 @Table(name = "course")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Course {
 
 
+
     @ManyToMany(mappedBy = "courseList")
-    //@JsonIgnore
-    //  @JsonManagedReference
-    //@JsonView
-    //@JsonBackReference
     private List<Student> studentList = new ArrayList<>();
 
 

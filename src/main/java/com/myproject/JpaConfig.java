@@ -20,9 +20,6 @@ import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 import java.util.Properties;
 
-/**
- * Created by Daniel.Diaconu on 18/05/28.
- */
 @Configuration
 @EnableTransactionManagement
 @EnableJpaRepositories(basePackages = "com.myproject.repository")

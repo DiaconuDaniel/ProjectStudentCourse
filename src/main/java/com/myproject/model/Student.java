@@ -10,9 +10,6 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Daniel.Diaconu on 18/05/28.
- */
 @Entity
 @Table(name = "student")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
@@ -26,10 +23,7 @@ public class Student {
             joinColumns = @JoinColumn(name = "student_id"),
             inverseJoinColumns = @JoinColumn(name = "course_id")
     )
-    //add after
 
-   // @JsonBackReference
-    //@JsonManagedReference
     @JsonIgnore
     private List<Course> courseList = new ArrayList<>();
 

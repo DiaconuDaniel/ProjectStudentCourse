@@ -9,9 +9,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-/**
- * Created by Daniel.Diaconu on 18/05/29.
- */
 @Service
 public class CourseService {
 
@@ -21,32 +18,31 @@ public class CourseService {
     @Autowired
     private StudentRepository studentRepository;
 
-    //get course for id
+
     public Course getCourseById(Integer id) {
         Course course = courseRepository.getOne(id);
         return course;
     }
 
 
-    //get all course
     public List<Course> getAllCourse() {
         return courseRepository.findAll();
     }
 
-    //add a curse
+
     public Course addCourse(Course course) {
         return courseRepository.save(course);
     }
 
-    //add a student at course
-    public Course addStudentToCourse(Course course, Student student) {
+
+    public void addStudentToCourse(Integer courseId, Student student) {
+        Course course = courseRepository.getOne(courseId);
         Student studentSaved = studentRepository.save(student);
         course.getStudentList().add(studentSaved);
-        return courseRepository.save(course);
+        courseRepository.save(course);
     }
 
 
-    //update a course
     public void updateCourse(Course course) {
         courseRepository.save(course);
     }
